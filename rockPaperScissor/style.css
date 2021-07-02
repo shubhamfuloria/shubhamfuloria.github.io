@@ -1,0 +1,79 @@
+:root{
+        --main-theme : rgb(235, 49, 49);
+}
+img{
+        width: 100px;
+}
+*{
+        margin: 0;
+}
+body{
+        background-image: url(img/bgImage.jpg);
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+}
+header{
+        text-align: center;
+        background: rgb(114, 241, 76);
+        padding: 10px;
+}
+main{
+        /* background: lightblue; */
+        display : flex;
+        justify-content: space-between;
+        /* border: 2px green dashed; */
+        width: 80%;
+        margin: auto;
+        height: 80vh;
+      
+}
+.player-section{
+        flex: 1;
+        /* background: lightgree */
+        /* border: orange 3px dashed; */
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+}
+.name{
+        color: var(--main-theme);
+}
+.selection-btn{
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+}
+.score{
+        margin-top: 40px;
+        border: 4px solid black;
+        padding: 10px 15px;
+        border-color: var(--main-theme);
+        color: var(--main-theme);
+}
+.result {
+        position: absolute;
+        top: 50%:;
+        top: 28%;
+        background: orange;
+        padding: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 39%;
+        /* display: none; */
+    }
+    .button.new{
+            margin-top: 50px;
+    }
+    button{
+            border: 0;
+            padding: 8px;
+            background: rgb(80, 243, 80);
+            cursor: pointer;
+    }

@@ -1,0 +1,48 @@
+*{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+
+body{
+        background: rgb(230, 234, 235);
+        
+}
+
+.main-container{
+        /* background: lightblue; */
+        width: 95%;
+        margin: auto;
+        text-align: center;
+        height: 80%;
+        margin-top: 50px;
+}
+
+.heading{
+        font-style: italic;
+        color: red;
+        position: relative;
+        bottom: 10px;
+}
+
+.main-pad{
+
+        height: 500px;
+        width: 500px;
+        background: white;
+        margin: auto;
+        display : grid;
+        grid-template-columns: repeat(60, 1fr);
+        grid-template-rows: repeat(60, 1fr);
+}
+
+.clear-btn{
+        margin-top: 10px;
+        border: 0;
+        background: orange;
+        color: black;
+        font-weight: bold;
+        padding: 5px;
+}
+
+

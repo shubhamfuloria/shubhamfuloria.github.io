@@ -1,0 +1,380 @@
+:root {
+  --main-color: rgb(0, 237, 189);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+/**************************************************/
+.header {
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+}
+header .header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+header img {
+  height: 80px;
+}
+header ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  height: 70%;
+  align-items: center;
+}
+header nav {
+  flex-basis: 50%;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+  color: black;
+}
+header li {
+  transition: transform, border-bottom, 200ms;
+}
+header li:hover {
+  border-bottom: 3px solid var(--main-color);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  header nav {
+    display: none;
+  }
+  header img {
+    margin: auto;
+  }
+}
+
+/******************************************************************/
+/********************INTRO_SECTION********************************/
+
+section.intro {
+  display: grid;
+  grid-column-gap: 1em;
+  width: min-content;
+  margin: auto;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "image heading"
+    "image sub-heading";
+  padding-top: 120px;
+}
+section.intro img {
+  display: block;
+  width: 280px;
+  grid-area: image;
+  z-index: 2;
+  box-shadow: 0 0 10px grey, 0 0 12px grey;
+}
+section.intro h1 {
+  grid-area: heading;
+  font-weight: 100;
+  font-size: 2.5em;
+}
+section.intro p {
+  grid-area: sub-heading;
+  font-size: 1.5em;
+  background: var(--main-color);
+  height: min-content;
+  grid-column: 1/3;
+  text-align: right;
+  position: relative;
+  left: -2em;
+  width: calc(100% + 2em);
+  padding-right: 1em;
+}
+section.intro strong {
+  display: block;
+}
+
+@media (max-width: 500px) {
+  body {
+    width: fit-content;
+  }
+  section.intro {
+    width: 95%;
+    display: flex;
+    flex-flow: column wrap;
+    padding-top: 100px;
+  }
+  section.intro img {
+    order: 3;
+    width: 90%;
+    min-width: 275px;
+  }
+  section.intro h1 {
+  }
+  section.intro p {
+    width: 90%;
+    position: unset;
+    text-align: left;
+    padding-left: 20px;
+    min-width: 275px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/**********************WHAT-I-DO*****************/
+
+/**********************************************/
+/*************WHAT-I-DO_SECTION****************/
+section.what-I-do {
+  background: rgb(48, 48, 48);
+  color: white;
+  padding: 1em 0.5em;
+  padding-bottom: 2em;
+  margin-top: 3em;
+}
+
+section.what-I-do header {
+  text-align: center;
+  transition: border 500ms ease-in-out;
+  padding: 1em;
+  margin-bottom: 20px;
+  
+}
+section.what-I-do h1{
+  display: inline-block;
+  border-bottom: 4px solid var(--main-color);
+  transition: 500ms border ease-in;
+  
+}
+section.what-I-do h1:hover{
+  cursor: pointer;
+  border-left: 4px solid var(--main-color);
+  border-right: 4px solid var(--main-color);
+  padding-left: 4px;
+  padding-right: 4px;
+  border-bottom: none;
+}
+section.what-I-do .what-I-do--flex_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+section.what-I-do .what-I-do--flex_child {
+  flex-basis: 27%;
+  text-align: center;
+}
+section.what-I-do h2 {
+  font-size: 22px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+section.what-I-do p {
+  color: rgba(132, 132, 132);
+}
+
+section.what-I-do button {
+  text-align: center;
+  margin: auto;
+  display: block;
+  padding: 5px 20px;
+  background: var(--main-color);
+  border: none;
+  font-weight: 900;
+  font-family: arial;
+  transition: transform 500ms ease-in-out;
+  
+}
+section.what-I-do button:hover{
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+@media ( max-width: 850px){
+  section.what-I-do .what-I-do--flex_container{
+    flex-flow: column;
+   align-items: center;
+    justify-content: space-around;
+  }
+  section.what-I-do .what-I-do--flex_child{
+    width: 90%;
+    margin-top: 30px;
+    padding: 1em;
+    
+  }
+}
+
+@media(max-width: 400px){
+  section.what-I-do .what-I-do--flex_container{
+    padding: 0.5em;
+  }
+  section.what-I-do .what-I-do--flex_child{
+    width: 99%;
+  }
+}
+
+
+/********************************************************************************/
+/*********************WHO-I-AM_SECTION*******************************************/
+
+section.who-I-am{
+  display: grid;
+  width: 70%;
+  margin: auto;
+  grid-template-areas: 
+    "heading image"
+    "sub-heading image"
+    "para1 image"
+    "para2 image";
+  grid-template-rows: 1fr 1fr 2fr 2fr;
+  line-height: 25px;
+  margin-top: 30px;
+}
+section.who-I-am img{
+  grid-area: image;
+  width: 250px;
+  box-shadow: 0 0 10px grey, 0 0 12px grey;
+  z-index: 2;
+}
+section.who-I-am h1{
+  grid-area: heading;
+  align-self: center;
+  font-size: 35px;
+}
+section.who-I-am .sub-heading{
+  grid-area: sub-heading;
+  background: var(--main-color);
+  height: min-content;
+  padding: 8px;
+  grid-column: 1/3;
+  position: relative;
+  width: calc(100% + 3em);
+  text-align: left;
+  right: auto;
+  font-size: 19px;
+  font-family: monospace;
+}
+section.who-I-am .para1{
+  grid-area: para1;
+  align-self: center;
+}
+section.who-I-am .para2{
+  grid-area: para2;
+}
+@media (max-width: 1000px){
+  section.who-I-am{
+    width: 90%;
+   
+  }
+  section.who-I-am .sub-heading{
+    width: calc(100% + 20px);
+  }
+}
+
+@media (max-width: 750px){
+  section.who-I-am{
+    grid-template-areas:
+      "heading"
+      "sub-heading"
+      "para1"
+      "para2"
+      "image";
+    grid-row-gap: 1em;
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+  }
+  section.who-I-am .sub-heading{
+    width: 90%;
+  }
+  section.who-I-am img{
+    width: 98%;
+    margin: auto;
+  }
+}
+
+/************************************************************************************************************/
+/*******************************MY-WORK_SECTION**************************************************************/
+
+* section.my-work{
+  width: 100%;
+  margin: auto;
+  background: rgb(48, 48, 48);
+  color: white;
+  padding: 1em;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 50px;
+}
+section.my-work h1{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+}
+section.my-work .sub-heading{
+  text-align: center;
+  font-size: 22px;
+  color: var(--main-color);
+  font-weight: bold;
+  margin-top: 10px;
+}
+section.my-work .img-contaienr{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+section.my-work img:hover{
+  background: var(--main-color);
+  transform: scale(1.2);
+  opacity: 1;
+  
+ 
+}
+section.my-work img{
+  transition: 500ms ease-in transform;
+  width: 30%;
+}
+@media (max-width: 600px){
+  section.my-work img{
+    width: 100%;
+  }
+  section.my-work .img-contaienr{
+    margin-top: 40px;
+  }
+}
+
+
+/**********************************************************************************************/
+/**************************************FOOTER*************************************************/
+
+footer{
+  background: rgb(48, 48, 48);
+  color: white;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+}
+footer .mail-to:hover{
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+
+

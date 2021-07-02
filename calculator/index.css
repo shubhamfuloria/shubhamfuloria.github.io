@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+  border: 10px solid grey;
+  height: min-content;
+  margin: auto;
+}
+.display {
+  height: 80px;
+  background: lightgrey;
+  width: 300px;
+  font-family: orbitron;
+  text-align: right;
+  font-size: 30px;
+  padding-top: 35px;
+}
+.keypanel {
+  height: 300px;
+  background: lightgreen;
+  width: 300px;
+  border-top: grey 2px solid;
+  
+}
+
+.number-panel{
+    display: grid;
+    background: lightblue;
+    height: 100%;
+  grid-template-areas:
+    'key-s key-devide key-multi key-minus'
+    'key7 key8 key9 key-plus'
+    'key4 key5 key6 key-plus'
+    'key1 key2 key3 key-equal'
+    'key0 key0 delete key-equal' ;
+}
+
+.active{
+    background: lightgreen;
+}
+/**********************************************/
+.key_1 {
+  grid-area: key1;
+}
+.key_2 {
+  grid-area: key2;
+}
+.key_3 {
+  grid-area: key3;
+}
+.key_4 {
+  grid-area: key4;
+}
+.key_5 {
+  grid-area: key5;
+}
+.key_6 {
+  grid-area: key6;
+}
+.key_7 {
+  grid-area: key7;
+}
+.key_8 {
+  grid-area: key8;
+}
+.key_9 {
+  grid-area: key9;
+}
+.key_0 {
+  grid-area: key0;
+}
+.key_plus {
+  grid-area: key-plus;
+}
+.key_minus {
+  grid-area: key-minus;
+}
+.key_multi {
+  grid-area: key-multi;
+}
+.key_devid {
+  grid-area: key-devide;
+}
+.key_delete{
+    grid-area: delete;
+    justify-content:;
+}
+.key_start{
+    grid-area: key-s;
+}
+.key_equal{
+    grid-area: key-equal;
+    
+}
+.number-panel div{
+    justify-self: center;
+    align-self: center;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 25px;
+}
+.number-panel div:active {
+    background: lightgreen;
+}
