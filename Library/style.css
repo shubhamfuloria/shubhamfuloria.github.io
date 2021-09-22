@@ -38,6 +38,7 @@ header {
 
 .main__books_child {
     border: 3px solid var(--background_blue);
+    border-top: 0.8rem solid rgb(245, 80, 80);
     width: 250px;
     height: 350px;
     text-align: center;
@@ -48,6 +49,7 @@ header {
 .book__title {
     font-size: 1.6rem;
     height: 75px;
+    font-family: monospace;
 }
 
 .book__author {
@@ -66,19 +68,19 @@ header {
     cursor: pointer;
 }
 
-#read_button:hover {
+.read_button:hover {
     background-color: rgb(131, 245, 141);
 }
 
-#not_read_button:hover {
+.not_read_button:hover {
     background: rgb(241, 113, 113);
 }
 
-#read_button {
+.read_button {
     background: rgb(152, 231, 152);
 }
 
-#not_read_button {
+.not_read_button {
     background: rgb(238, 134, 134);
 }
 
@@ -197,4 +199,10 @@ span{
     to {
         transform: scale(1);
     }
+}
+
+/* read status feature*/
+
+.read {
+    border-top: 0.8rem solid rgb(105, 235, 105);
 }

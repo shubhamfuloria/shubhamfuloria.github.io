@@ -5,17 +5,17 @@ const actualAddBookButtonEl = document.querySelector('.addBook__button1')
 const titleInputEl = document.getElementById('titleInput')
 const authorInputEl = document.getElementById('authorInput')
 const pagesInputEl = document.getElementById('pagesInput')
-const mainBookContainer = document.querySelector('.main__books_parent')
-
+const mainBookContainer = document.querySelector('.main__books_parent');
 
 
 
 
 //constructor for storing books in Object form
-function Library(title, author, pages) {
+function Library(title, author, pages, read = false) {
     this.title = title
     this.author = author
     this.pages = pages
+    this.read = read;
 }
 let LibraryArray = new Array();
 //code that will run at every beginning
@@ -30,7 +30,8 @@ function pushToLocalStorage() {
         let s = "";
         s += el.title + "$";
         s += el.author + "$";
-        s += el.pages;
+        s += el.pages + "$"
+        s += el.read;
 
         localStorage.setItem(key, s);
         key++;
@@ -43,7 +44,9 @@ function getFromLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
 
         let bookContent = localStorage[i].split('$');
-        let bookObj = new Library(bookContent[0], bookContent[1], bookContent[2]);
+        let readStatus = eval(bookContent[3]);
+        let bookObj = new Library(bookContent[0], bookContent[1], bookContent[2], readStatus);
+        
         LibraryArray.push(bookObj);
     }
 }
@@ -65,9 +68,12 @@ function updateDOM() {
                     <h3 class="book__author">${el.author}</h3>
                     <h3 class="book__pages">${el.pages} Pages</h3>
 
-                    <button id="read_button">Read</button>
-                    <button id="not_read_button">Not Read</button>
+                    <button class="read_button">Read</button>
+                    <button class ="not_read_button">Not Read</button>
         `
+        if (el.read)
+            element.classList.add('read');
+            
         mainBookContainer.appendChild(element);
 
     }
@@ -77,6 +83,9 @@ function storeBookInObj() {
     let author = authorInputEl.value;
     let pages = pagesInputEl.value;
 
+    titleInputEl.value = "";
+    authorInputEl.value = "";
+    pagesInputEl.value = "";
     let newBook = new Library(title, author, pages);
     LibraryArray.push(newBook);
     pushToLocalStorage();
@@ -84,7 +93,30 @@ function storeBookInObj() {
     closeAddBookPopup();
 }
 
+function updateReadStatus(bookName, readStatus) {
+    
+    for (el of LibraryArray) {
+        if (el.title == bookName) {
+            el.read = readStatus;
+            break;
+        }
+    }
+    pushToLocalStorage();
+    updateDOM();
+}
 
+mainBookContainer.addEventListener('click', function (e) {
+
+    const target = e.target;
+    if (target.classList.contains('read_button')) {
+        let clickedBookName = target.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+        updateReadStatus(clickedBookName, true);
+    }
+    else if (target.classList.contains('not_read_button')) {
+        let clickedBookName = target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+        updateReadStatus(clickedBookName, false);
+    }
+});
 
 
 
